@@ -128,9 +128,10 @@ Orden recomendado:
 
 🟢 Servicios (msvc-student, msvc-course, etc)
 
-🧩 Troubleshooting
-Problema	Solución
-❌ 404 en FeignClient	Verificar que el @GetMapping coincida con el path completo del endpoint.
-❌ Connection refused en Eureka	Asegurarse que el Config Server esté levantado si se usa config.import.
-❌ 404 Not Found en Gateway	Confirmar que las rutas del Gateway coincidan con los paths reales de los servicios.
+| Problema                        | Solución                                                      |
+| ------------------------------ | -------------------------------------------------------------|
+| ❌ 404 en FeignClient           | Verificar que el @GetMapping coincida con el path completo del endpoint. |
+| ❌ Connection refused en Eureka | Asegurarse que el Config Server esté levantado si se usa config.import. |
+| ❌ 404 Not Found en Gateway     | Confirmar que las rutas del Gateway coincidan con los paths reales de los servicios. |
+
 
