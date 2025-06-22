@@ -37,9 +37,9 @@ Este repositorio contiene una arquitectura básica de microservicios usando Spri
 ```
 
 Anotación requerida:
-
+```java
 @EnableConfigServer
-
+```
 2. Eureka Server (microservice-eureka)
 Clase principal: MicroserviceEurekaApplication
 
