@@ -34,7 +34,7 @@ Este repositorio contiene una arquitectura básica de microservicios usando Spri
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-config-server</artifactId>
 </dependency>
-
+```
 
 Anotación requerida:
 
@@ -45,42 +45,29 @@ Clase principal: MicroserviceEurekaApplication
 
 Dependencia clave:
 
-xml
-Copiar
-Editar
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 </dependency>
 Anotación requerida:
 
-java
-Copiar
-Editar
 @EnableEurekaServer
 3. API Gateway (microservice-gateway)
 Clase principal: MicroserviceGatewayApplication
 
 Dependencia correcta:
 
-xml
-Copiar
-Editar
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-gateway</artifactId>
 </dependency>
+
 🚫 No usar:
 
-xml
-Copiar
-Editar
 <!-- spring-cloud-starter-gateway-server-webmvc -->
 application.yml correcto:
 
 yaml
-Copiar
-Editar
 spring:
   cloud:
     gateway:
@@ -99,9 +86,6 @@ spring:
 4. Servicio de Cursos (msvc-course)
 Usa Feign Client para comunicarse con msvc-student:
 
-java
-Copiar
-Editar
 @FeignClient(name = "msvc-student")
 public interface IStudentClient {
     @GetMapping("/api/student/search-by-course/{idCourse}")
@@ -120,8 +104,6 @@ Exponen los endpoints bajo /api/student/** como se define en el Gateway.
 ✅ Todas las apps deben tener bien configurado su application.yml:
 
 yaml
-Copiar
-Editar
 spring:
   application:
     name: msvc-nombre
