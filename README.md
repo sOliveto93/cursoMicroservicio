@@ -40,28 +40,30 @@ Anotación requerida:
 ```java
 @EnableConfigServer
 ```
-2. Eureka Server (microservice-eureka)
+### 2. Eureka Server (microservice-eureka)
 Clase principal: MicroserviceEurekaApplication
 
 Dependencia clave:
-
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 </dependency>
+```
 Anotación requerida:
-
+```java
 @EnableEurekaServer
-3. API Gateway (microservice-gateway)
+```
+### 3. API Gateway (microservice-gateway)
 Clase principal: MicroserviceGatewayApplication
 
 Dependencia correcta:
-
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-gateway</artifactId>
 </dependency>
-
+```
 🚫 No usar:
 
 <!-- spring-cloud-starter-gateway-server-webmvc -->
@@ -83,7 +85,7 @@ spring:
       discovery:
         locator:
           enabled: true
-4. Servicio de Cursos (msvc-course)
+### 4. Servicio de Cursos (msvc-course)
 Usa Feign Client para comunicarse con msvc-student:
 
 @FeignClient(name = "msvc-student")
@@ -93,7 +95,7 @@ public interface IStudentClient {
 }
 ⚠️ Importante: El @FeignClient usa name para que Spring lo resuelva por Eureka. No usar url si estás trabajando con descubrimiento de servicios.
 
-5. Servicio de Estudiantes (msvc-student)
+### 5. Servicio de Estudiantes (msvc-student)
 Exponen los endpoints bajo /api/student/** como se define en el Gateway.
 
 ⚠️ Consideraciones Importantes
