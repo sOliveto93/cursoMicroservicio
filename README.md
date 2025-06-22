@@ -115,10 +115,7 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+# El resto de la configuración (puerto, base de datos, eureka, etc.) está centralizada en el Config Server.
 ```
 🚀 Lanzamiento de Servicios
 Orden recomendado:
