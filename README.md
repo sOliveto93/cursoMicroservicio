@@ -88,13 +88,14 @@ spring:
           enabled: true
 ```
 ### 4. Servicio de Cursos (msvc-course)
-Usa Feign Client para comunicarse con msvc-student:
-
+Usa Feign Client (alternativa a restTemplate) para comunicarse con msvc-student:
+```java
 @FeignClient(name = "msvc-student")
 public interface IStudentClient {
     @GetMapping("/api/student/search-by-course/{idCourse}")
     List<StudentDTO> findAllStudentsByCourse(@PathVariable Long idCourse);
 }
+```
 ⚠️ Importante: El @FeignClient usa name para que Spring lo resuelva por Eureka. No usar url si estás trabajando con descubrimiento de servicios.
 
 ### 5. Servicio de Estudiantes (msvc-student)
@@ -107,7 +108,7 @@ Exponen los endpoints bajo /api/student/** como se define en el Gateway.
 
 ✅ Todas las apps deben tener bien configurado su application.yml:
 
-yaml
+```yaml
 spring:
   application:
     name: msvc-nombre
@@ -118,6 +119,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+```
 🚀 Lanzamiento de Servicios
 Orden recomendado:
 
