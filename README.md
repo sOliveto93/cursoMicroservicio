@@ -65,11 +65,12 @@ Dependencia correcta:
 </dependency>
 ```
 🚫 No usar:
-
+```xml
 <!-- spring-cloud-starter-gateway-server-webmvc -->
+```
 application.yml correcto:
 
-yaml
+```yaml
 spring:
   cloud:
     gateway:
@@ -85,6 +86,7 @@ spring:
       discovery:
         locator:
           enabled: true
+```
 ### 4. Servicio de Cursos (msvc-course)
 Usa Feign Client para comunicarse con msvc-student:
 
